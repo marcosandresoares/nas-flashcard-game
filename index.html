@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nas - Flashcard Game </title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-container">
+                <div class="profile-container" id="scene">
+                    <div class="background layer" data-depth="0.5"></div>
+                    <div class="inner-container">
+                        <div class="background-image layer" data-depth="0.1">
+                            <img class="profile-pic" src="assets/nas-profile.jpg" alt="profile" class="image">
+                        </div>
+                    </div>
+                    <div class="profile-title">
+                        <h2 class="subtitle">Flashcard Game</h2>
+                        <h1 class="title">The Discography of Nas </h1>
+                    </div>
+                    <div class="profile-rules">
+                        <p> Each card contains an album cover of an album belonging to Nas. <br/>The objective of the game is to turn over pairs of matching album covers.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <hr>
+
+        <section id="board" data-bind="foreach:tiles">
+            <div class="cardholder">
+                <div class="card" data-bind="click:$parent.flipTile, css:{ open : !closed() , disabled: $parent.disabled() || solved() , solved : solved() }">
+                    <div class="front"></div>
+                    <div class="back">
+                        <img data-bind="attr:{ src : img }" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>"Nothing's equivalent to the New York state of mind" - <i>N.Y. State of Mind</i>, Nas</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
